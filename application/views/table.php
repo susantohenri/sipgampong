@@ -24,5 +24,5 @@
 </div>
 <script type="text/javascript">
     var thead = <?= json_encode($thead) ?>;
-    var allow_read = <?= in_array("read_{$current['controller']}", $permission) ?>
+    var allow_read = <?= in_array("read_{$current['controller']}", $permission) ? 1 : 0 ?>
 </script>
