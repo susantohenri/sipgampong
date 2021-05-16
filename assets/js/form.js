@@ -99,6 +99,31 @@ function formInit (scope) {
   scope.find('[data-number="true"]').keyup(function () {
     $(this).val(currency(getNumber($(this))))
   })
+  scope.find('img').each(function () {
+    $(this).css('cursor', 'pointer').click(function () {
+      var src = $(this).attr('src')
+      $('body').append(`
+        <div class="modal" tabindex="-1" role="dialog" id="preview">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-center">
+                <img src="${src}" style="max-width: 100%">
+              </div>
+            </div>
+          </div>
+        </div>
+      `)
+      $('#preview').modal('show')
+      $('#preview').on('hidden.bs.modal', function (e) {
+        $('#preview').remove()
+      })
+    })
+  })
 }
 
 function getNumber (element) {
