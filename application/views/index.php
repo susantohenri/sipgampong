@@ -33,7 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
              style="opacity: .8"> -->
         <H2><span class="brand-text font-weight-light"><b>Prototype</b>App</span></H2>
       </a>
-      <a href="<?= site_url('Login/Logout') ?>">Logout</a>
+      <a href="<?= site_url('Home/Logout') ?>">Logout</a>
     </div>
   </nav>
   <!-- /.navbar -->

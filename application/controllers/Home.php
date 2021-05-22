@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Home extends CI_Controller {
 
 	function index () {
 		if ($post = $this->input->post()) {
@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 				redirect(base_url());
 			}
 		}
-		$this->load->view('login');
+		$this->load->view('home');
 	}
 
 	function Migrate ($version = null) {
