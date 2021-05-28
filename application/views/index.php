@@ -107,10 +107,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <!-- <script src="../../dist/js/adminlte.min.js"></script> -->
 <script type="text/javascript">
-  // PREVENT FORM RESUBMISSION ON REFRESH OR BACK
-  if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
-  }
   var site_url = '<?= site_url('/') ?>'
   var current_controller = '<?= $current['controller'] ?>'
   var current_controller_url = '<?= site_url ($current['controller']) ?>'
