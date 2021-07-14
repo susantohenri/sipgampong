@@ -1,0 +1,222 @@
+[
+    {
+        "controller": "Penduduk",
+        "fields": [
+            {
+                "name": "rt",
+                "label": "RT"
+            },
+            {
+                "name": "jurong",
+                "label": "JURONG"
+            },
+            {
+                "name": "no_kk",
+                "label": "NOMOR KK"
+            },
+            {
+                "name": "nama_kk",
+                "label": "NAMA KEPALA KELUARGA"
+            },
+            {
+                "name": "status_perkawian",
+                "label": "STATUS PERKAWINAN",
+                "options": ["Kawin", "Belum Kawin", "Pernah Kawin", "Cerai Mati", "Cerai Hidup"]
+            },
+            {
+                "name": "jenis_kelamin",
+                "label": "JENIS KELAMIN",
+                "options": ["L", "P"]
+            },
+            {
+                "name": "jumlah_tanggungan",
+                "label": "Jumlah Tanggungan"
+            },
+            {
+                "name": "jumlah_tanggungan_laki_laki",
+                "label": "Laki-laki"
+            },
+            {
+                "name": "jumlah_tanggungan_perempuan",
+                "label": "Perempuan"
+            },
+            {
+                "name": "jumlah_tanggungan_jiwa",
+                "label": "Jumlah Jiwa"
+            },
+            {
+                "name": "keadaan_rumah",
+                "label": "Keadaan Rumah"
+            },
+            {
+                "name": "kepemilikan_rumah",
+                "label": "Kepemilikan Rumah",
+                "options": ["Rumah Sendiri", "Sewa", "Numpang", "Rumah Dinas"]
+            },
+            {
+                "name": "sejak_tahun",
+                "label": "Sejak Tahun Berapa Tinggal di Gampong Cot Ba'u"
+            },
+            {
+                "name": "listrik",
+                "label": "Penggunaan Lampu, PLN/Lainnya",
+                "options": ["PLN", "Yang Lain"]
+            },
+            {
+                "name": "air",
+                "label": "Penggunaan Air, PDAM/Air Hujan/Beli",
+                "options": ["PDAM", "Air Hujan", "Beli"]
+            },
+            {
+                "name": "jamban",
+                "label": "Apakah Dirumah ini memiliki Jamban",
+                "options": ["Ada", "Tidak", "Bersama"]
+            }
+        ],
+        "childs": [
+            {
+                "controller": "PendudukKeluarga",
+                "label": "SUSUNAN KELUARGA DAN TANGGUNGAN"
+            },
+            {
+                "controller": "PendudukAnakYatim",
+                "label": "Apakah Dirumah ini ada anak yatim"
+            },
+            {
+                "controller": "PendudukUsaha",
+                "label": "Apakah Pemilik Rumah ada membuka usaha"
+            },
+            {
+                "controller": "PendudukTernak",
+                "label": "Apakah Pemilik Rumah ada Sapi/Kambing"
+            },
+            {
+                "controller": "PendudukKendaraan",
+                "label": "Apakah Dirumah ini ada memiliki kendaraan"
+            },
+            {
+                "controller": "PendudukCacat",
+                "label": "Apakah Dirumah ini ada orang yang cacat/lumpuh"
+            }
+        ]
+    },
+    {
+        "controller": "PendudukKeluarga",
+        "fields": [
+            {
+                "name": "nama"
+            },
+            {
+                "name": "ttl",
+                "label": "Tempat/Tgl. Lahir"
+            },
+            {
+                "name": "hubungan",
+                "label": "Hubungan dg KK"
+            },
+            {
+                "name": "pekerjaan"
+            },
+            {
+                "name": "agama"
+            },
+            {
+                "name": "pendidikan_terakhir",
+                "label": "Pendidikan Terakhir"
+            },
+            {
+                "name": "pendidikan_tamat",
+                "label": "Tamat/Tidak",
+                "options": ["Tamat", "Tidak"]
+            },
+            {
+                "name": "suku"
+            },
+            {
+                "name": "pendidikan_sekarang",
+                "label": "Masih Melanjutkan Dimana"
+            },
+            {
+                "name": "pendidikan_sekarang_jurusan",
+                "label": "Jurusan"
+            }
+        ]
+    },
+    {
+        "controller": "PendudukAnakYatim",
+        "fields": [
+            {
+                "name": "nama"
+            },
+            {
+                "name": "nama_ayah",
+                "label": "Nama Ayah"
+            },
+            {
+                "name": "tahun_meninggal",
+                "label": "Tahun Berapa Almarhum"
+            },
+            {
+                "name": "tempat_meninggal",
+                "label": "Bertempat"
+            },
+            {
+                "name": "sebab_meninggal",
+                "label": "Sebab Meninggal"
+            }
+        ]
+    },
+    {
+        "controller": "PendudukUsaha",
+        "fields": [
+            {
+                "name": "rincian",
+                "type": "textarea"
+            }
+        ]
+    },
+    {
+        "controller": "PendudukTernak",
+        "fields": [
+            {
+                "name": "jenis",
+                "options": ["Sapi", "Kambing"]
+            },
+            {
+                "name": "jumlah"
+            },
+            {
+                "name": "kepemilikan",
+                "options": ["Sendiri", "Bantuan"]
+            }
+        ]
+    },
+    {
+        "controller": "PendudukKendaraan",
+        "fields": [
+            {
+                "name": "jenis",
+                "options": ["Roda Dua", "Roda Tiga", "Roda Empat"]
+            },
+            {
+                "name": "jumlah"
+            }
+        ]
+    },
+    {
+        "controller": "PendudukCacat",
+        "fields": [
+            {
+                "name": "nama"
+            },
+            {
+                "name": "cacat",
+                "label": "Jelaskan Cacatnya"
+            },
+            {
+                "name": "sejak_tahun",
+                "label": "Sejak Tahun"
+            }
+        ]
+    }
+]
