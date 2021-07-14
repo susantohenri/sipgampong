@@ -15,38 +15,38 @@ class PendudukKeluargas extends MY_Model
 		$this->form = array(
 			array(
 				'name' => 'nama',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Nama',
 			),
 			array(
 				'name' => 'ttl',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Tempat/Tgl. Lahir',
 			),
 			array(
 				'name' => 'hubungan',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Hubungan dg KK',
 			),
 			array(
 				'name' => 'pekerjaan',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Pekerjaan',
 			),
 			array(
 				'name' => 'agama',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Agama',
 			),
 			array(
 				'name' => 'pendidikan_terakhir',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Pendidikan Terakhir',
 			),
 			array(
 				'name' => 'pendidikan_tamat',
 				'label' => 'Tamat/Tidak',
-				'width' => 2,
+				'width' => 4,
 				'options' => array(
 					array('text' => 'Tamat', 'value' => 'Tamat'),
 					array('text' => 'Tidak', 'value' => 'Tidak'),
@@ -54,17 +54,17 @@ class PendudukKeluargas extends MY_Model
 			),
 			array(
 				'name' => 'suku',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Suku',
 			),
 			array(
 				'name' => 'pendidikan_sekarang',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Masih Melanjutkan Dimana',
 			),
 			array(
 				'name' => 'pendidikan_sekarang_jurusan',
-				'width' => 2,
+				'width' => 4,
 				'label' => 'Jurusan',
 			),
 		);

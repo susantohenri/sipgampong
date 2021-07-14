@@ -16,7 +16,7 @@ class PendudukKendaraans extends MY_Model
       array(
         'name' => 'jenis',
         'label' => 'Jenis',
-        'width' => 2,
+        'width' => 4,
         'options' => array(
           array('text' => 'Roda Dua', 'value' => 'Roda Dua'),
           array('text' => 'Roda Tiga', 'value' => 'Roda Tiga'),

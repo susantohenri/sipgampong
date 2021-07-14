@@ -15,7 +15,7 @@ class PendudukUsahas extends MY_Model
     $this->form = array(
       array(
         'name' => 'rincian',
-        'width' => 2,
+        'width' => 10,
         'label' => 'Rincian',
       ),
     );

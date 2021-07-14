@@ -7,6 +7,7 @@ class Migration_pendudukternak extends CI_Migration {
 
     $this->db->query("
       CREATE TABLE `pendudukternak` (
+        `penduduk` varchar(36) NOT NULL,
         `uuid` varchar(36) NOT NULL,
         `orders` INT(11) UNIQUE NOT NULL AUTO_INCREMENT,
         `createdAt` datetime DEFAULT NULL,

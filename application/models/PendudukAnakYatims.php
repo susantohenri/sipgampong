@@ -15,27 +15,27 @@ class PendudukAnakYatims extends MY_Model
     $this->form = array(
       array(
         'name' => 'nama',
-        'width' => 2,
+        'width' => 4,
         'label' => 'Nama',
       ),
       array(
         'name' => 'nama_ayah',
-        'width' => 2,
+        'width' => 4,
         'label' => 'Nama Ayah',
       ),
       array(
         'name' => 'tahun_meninggal',
-        'width' => 2,
+        'width' => 4,
         'label' => 'Tahun Berapa Almarhum',
       ),
       array(
         'name' => 'tempat_meninggal',
-        'width' => 2,
+        'width' => 4,
         'label' => 'Bertempat',
       ),
       array(
         'name' => 'sebab_meninggal',
-        'width' => 2,
+        'width' => 8,
         'label' => 'Sebab Meninggal',
       ),
     );

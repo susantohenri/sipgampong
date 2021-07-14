@@ -15,12 +15,12 @@ class PendudukCacats extends MY_Model
     $this->form = array(
       array(
         'name' => 'nama',
-        'width' => 2,
+        'width' => 4,
         'label' => 'Nama',
       ),
       array(
         'name' => 'cacat',
-        'width' => 2,
+        'width' => 5,
         'label' => 'Jelaskan Cacatnya',
       ),
       array(

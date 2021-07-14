@@ -16,7 +16,7 @@ class PendudukTernaks extends MY_Model
       array(
         'name' => 'jenis',
         'label' => 'Jenis',
-        'width' => 2,
+        'width' => 3,
         'options' => array(
           array('text' => 'Sapi', 'value' => 'Sapi'),
           array('text' => 'Kambing', 'value' => 'Kambing'),
@@ -30,7 +30,7 @@ class PendudukTernaks extends MY_Model
       array(
         'name' => 'kepemilikan',
         'label' => 'Kepemilikan',
-        'width' => 2,
+        'width' => 4,
         'options' => array(
           array('text' => 'Sendiri', 'value' => 'Sendiri'),
           array('text' => 'Bantuan', 'value' => 'Bantuan'),

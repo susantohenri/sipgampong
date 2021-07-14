@@ -80,7 +80,7 @@
                 <?php if ((empty($subfield->uuids) && in_array("create_{$subfield['controller']}", $permission)) || (!empty($subfield->uuids) && in_array("update_{$subfield['controller']}", $permission))) : ?>
 
                   <a class="btn btn-warning btn-add">
-                    <i class="fa fa-plus"></i> &nbsp;Input <?= $subfield['label'] ?>
+                    <i class="fa fa-plus"></i> &nbsp;Tambah Data
                   </a>
 
                 <?php endif ?>
