@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PrototypeApp | Log in</title>
+  <title>SIPGampong | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="<?= base_url('manifest.json') ?>" rel="manifest">
@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?= base_url() ?>"><b>Prototype</b>App</a>
+    <a href="<?= base_url() ?>"><b>SIP</b>Gampong</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
