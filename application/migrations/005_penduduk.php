@@ -27,6 +27,7 @@ class Migration_penduduk extends CI_Migration {
         `listrik` varchar(255) NOT NULL,
         `air` varchar(255) NOT NULL,
         `jamban` varchar(255) NOT NULL,
+        `penduduk_bukan` varchar(255) NOT NULL,
         PRIMARY KEY (`uuid`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8
     ");

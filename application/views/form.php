@@ -40,11 +40,13 @@
                 </div>
                 <?php break; ?>
               <?php
-              case 'textarea': ?>
+              case 'radiobutton': ?>
                 <div class="form-group row">
                   <label class="col-sm-3 control-label"><?= $field['label']  ?></label>
                   <div class="col-sm-9">
-                    <textarea class="form-control" name="<?= $field['name'] ?>" <?= $field['attr'] ?>></textarea>
+                    <?php foreach ($field['options'] as $radio): ?>
+                      <input type="radio" name="<?= $field['name'] ?>" value="<?= $radio['value'] ?>" <?= isset($field['value']) && $field['value'] === $radio['value'] ? 'checked':'' ?>> &nbsp; <?= $radio['text'] ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <?php endforeach ?>
                   </div>
                 </div>
                 <?php break; ?>

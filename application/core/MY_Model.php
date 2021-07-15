@@ -116,7 +116,7 @@ class MY_Model extends CI_Model
 
     foreach ($form as &$f) {
       if (!isset($f['attributes'])) $f['attributes']   = array();
-      if (isset($f['options'])) $f['type'] = 'select';
+      if (isset($f['options']) && !isset($f['type'])) $f['type'] = 'select';
       if (isset($f['multiple'])) {
         $f['name'] = $f['name'] . '[]';
         $f['attributes'][] = array('multiple' => 'true');
