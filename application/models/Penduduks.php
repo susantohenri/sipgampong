@@ -13,6 +13,26 @@ class Penduduks extends MY_Model
 		);
 		$this->form = array(
 			array(
+				'name' => 'ada_anakyatim',
+				'type' => 'hidden'
+			),
+			array(
+				'name' => 'ada_usaha',
+				'type' => 'hidden'
+			),
+			array(
+				'name' => 'ada_ternak',
+				'type' => 'hidden'
+			),
+			array(
+				'name' => 'ada_kendaraan',
+				'type' => 'hidden'
+			),
+			array(
+				'name' => 'ada_cacat',
+				'type' => 'hidden'
+			),
+			array(
 				'name' => 'jurong',
 				'width' => 2,
 				'label' => 'JURONG',
@@ -168,27 +188,27 @@ class Penduduks extends MY_Model
 				'model' => 'PendudukKeluargas'
 			),
 			array(
-				'label' => 'Apakah Dirumah ini ada anak yatim',
+				'label' => 'Apakah Dirumah ini ada anak yatim?',
 				'controller' => 'PendudukAnakYatim',
 				'model' => 'PendudukAnakYatims'
 			),
 			array(
-				'label' => 'Apakah Pemilik Rumah ada membuka usaha',
+				'label' => 'Apakah Pemilik Rumah ada membuka usaha?',
 				'controller' => 'PendudukUsaha',
 				'model' => 'PendudukUsahas'
 			),
 			array(
-				'label' => 'Apakah Pemilik Rumah ada Sapi/Kambing',
+				'label' => 'Apakah Pemilik Rumah ada Sapi/Kambing?',
 				'controller' => 'PendudukTernak',
 				'model' => 'PendudukTernaks'
 			),
 			array(
-				'label' => 'Apakah Dirumah ini ada memiliki kendaraan',
+				'label' => 'Apakah Dirumah ini ada memiliki kendaraan?',
 				'controller' => 'PendudukKendaraan',
 				'model' => 'PendudukKendaraans'
 			),
 			array(
-				'label' => 'Apakah Dirumah ini ada orang yang cacat/lumpuh',
+				'label' => 'Apakah Dirumah ini ada orang yang cacat/lumpuh?',
 				'controller' => 'PendudukCacat',
 				'model' => 'PendudukCacats'
 			),

@@ -28,6 +28,11 @@ class Migration_penduduk extends CI_Migration {
         `air` varchar(255) NOT NULL,
         `jamban` varchar(255) NOT NULL,
         `penduduk_bukan` varchar(255) NOT NULL,
+        `ada_anakyatim` varchar(10) NOT NULL,
+        `ada_usaha` varchar(10) NOT NULL,
+        `ada_ternak` varchar(10) NOT NULL,
+        `ada_kendaraan` varchar(10) NOT NULL,
+        `ada_cacat` varchar(10) NOT NULL,
         PRIMARY KEY (`uuid`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8
     ");
