@@ -26,4 +26,14 @@ $(function () {
             $(this).parent().parent().parent().find('.btn-delete').click()
         }
     })
+
+    if (window.location.href.indexOf('/read/') > -1) {
+        var url1 = window.location.href.replace('/read/', '/page1/')
+        var url2 = window.location.href.replace('/read/', '/page2/')
+        $('.btn-save').before(`
+            <a target="_blank" href="${url1}" class="btn btn-primary"><i class="fa fa-print"></i> &nbsp; Page 1</a>
+            <a target="_blank" href="${url2}" class="btn btn-success"><i class="fa fa-print"></i> &nbsp; Page 2</a>
+        `)
+    }
+
 })

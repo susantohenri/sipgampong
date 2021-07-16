@@ -46,4 +46,14 @@ class Penduduk extends MY_Controller
 		);
 		$this->loadview('index', $vars);
 	}
+
+	function page1($uuid)
+	{
+		$this->load->view('page1', $this->{$this->model}->findOne($uuid));
+	}
+
+	function page2($uuid)
+	{
+		$this->load->view('page2');
+	}
 }
