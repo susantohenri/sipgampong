@@ -127,6 +127,19 @@ function formInit (scope) {
       })
     })
   })
+
+  scope.find(':radio[name^="PendudukKeluarga_masih_melanjutkan"][value="Ya"]').each(function () {
+    var dimana_jurusan = $(this).parent().parent().parent().find('[name*="dimana"],[name*="jurusan"]').parent()
+    if ($(this).is(':checked')) dimana_jurusan.show()
+    else dimana_jurusan.hide()
+  })
+  scope.find(':radio[name^="PendudukKeluarga_masih_melanjutkan"]').each(function () {
+    $(this).click(function () {
+      var dimana_jurusan = $(this).parent().parent().parent().find('[name*="dimana"],[name*="jurusan"]').parent()
+      if ($(this).val() === 'Ya') dimana_jurusan.show()
+      else if ($(this).val() === 'Tidak') dimana_jurusan.hide()
+    })
+  })
 }
 
 function getNumber (element) {

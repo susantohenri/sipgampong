@@ -40,6 +40,19 @@
             </div>
             <?php break; ?>
           <?php
+          case 'radiobutton': ?>
+            <div class="input-group col-sm-<?= $field['width'] ?>">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><?= $field['label'] ?></span>
+              </div>
+              <div style="padding: 7px 20px;">
+              <?php foreach ($field['options'] as $radio) : ?>
+                <input type="radio" name="<?= "{$controller}_" ?><?= $field['name'] ?>[<?= $uuid ?>]" value="<?= $radio['value'] ?>" <?= isset($field['value']) && $field['value'] === $radio['value'] ? 'checked' : '' ?>> &nbsp; <?= $radio['text'] ?>&nbsp;&nbsp;&nbsp;
+              <?php endforeach ?>
+              </div>
+            </div>
+            <?php break; ?>
+          <?php
           default: ?>
             <div class="input-group col-sm-<?= $field['width'] ?>">
               <div class="input-group-prepend">
