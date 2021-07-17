@@ -54,6 +54,28 @@ class Penduduk extends MY_Controller
 
 	function page2($uuid)
 	{
-		$this->load->view('page2');
+		$models = array(
+			'PendudukAnakYatims',
+			'PendudukCacats',
+			'PendudukKeluargas',
+			'PendudukKendaraans',
+			'PendudukTernaks',
+			'PendudukUsahas'
+		);
+		$this->load->model($models);
+		$vars = array();
+		foreach ($models as $model) $vars[$model] = $this->$model->find(array('penduduk' => $uuid));
+
+		$vars['roda_dua'] = 0;
+		$vars['roda_tiga'] = 0;
+		$vars['roda_empat'] = 0;
+		foreach ($vars['PendudukKendaraans'] as $roda) {
+			if ($roda->jenis === 'Roda Dua') $vars['roda_dua'] += (int) $roda->jumlah;
+			if ($roda->jenis === 'Roda Tiga') $vars['roda_tiga'] += (int) $roda->jumlah;
+			if ($roda->jenis === 'Roda Empat') $vars['roda_empat'] += (int) $roda->jumlah;
+		}
+
+		$vars['Penduduk'] = $this->{$this->model}->findOne($uuid);
+		$this->load->view('page2', $vars);
 	}
 }

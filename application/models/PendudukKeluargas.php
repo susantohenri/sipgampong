@@ -127,4 +127,10 @@ class PendudukKeluargas extends MY_Model
 			->select('pendudukkeluarga.nama');
 		return parent::dt();
 	}
+
+	function find($params = array())
+	{
+		$this->db->order_by('orders', 'asc');
+		return parent::find($params);
+	}
 }
