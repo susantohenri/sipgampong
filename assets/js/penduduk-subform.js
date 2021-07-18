@@ -28,11 +28,9 @@ $(function () {
     })
 
     if (window.location.href.indexOf('/read/') > -1) {
-        var url1 = window.location.href.replace('/read/', '/page1/')
-        var url2 = window.location.href.replace('/read/', '/page2/')
+        var url1 = window.location.href.replace('/read/', '/print/')
         $('.btn-save').before(`
-            <a target="_blank" href="${url1}" class="btn btn-primary"><i class="fa fa-print"></i> &nbsp; Page 1</a>
-            <a target="_blank" href="${url2}" class="btn btn-success"><i class="fa fa-print"></i> &nbsp; Page 2</a>
+            <a target="_blank" href="${url1}" class="btn btn-primary"><i class="fa fa-print"></i> &nbsp; Print</a>
         `)
     }
 

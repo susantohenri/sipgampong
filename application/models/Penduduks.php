@@ -48,6 +48,9 @@ class Penduduks extends MY_Model
 				'name' => 'rt',
 				'width' => 2,
 				'label' => 'RT',
+				'attributes' => array(
+					array('data-number' => 'true')
+				)
 			),
 			array(
 				'name' => 'no_kk',
@@ -174,7 +177,7 @@ class Penduduks extends MY_Model
 		$this->form = array_map(function ($field) {
 			if ($field['name'] === 'sejak_tahun') {
 				$field['options'] = array();
-				for ($y = 1920; $y <= date('Y'); $y++) $field['options'][] = array(
+				for ($y = 2000; $y <= date('Y'); $y++) $field['options'][] = array(
 					'text' => $y, 'value' => "'$y'"
 				);
 			}
