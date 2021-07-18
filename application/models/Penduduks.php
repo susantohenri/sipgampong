@@ -10,6 +10,10 @@ class Penduduks extends MY_Model
 		$this->thead = array(
 			(object) array('mData' => 'orders', 'sTitle' => 'No', 'visible' => false),
 			(object) array('mData' => 'nama_kk', 'sTitle' => 'NAMA KEPALA KELUARGA'),
+			(object) array('mData' => 'no_kk', 'sTitle' => 'NO. KK'),
+			(object) array('mData' => 'jumlah_tanggungan', 'sTitle' => 'Jml. Tanggungan'),
+			(object) array('mData' => 'rt', 'sTitle' => 'RT'),
+			(object) array('mData' => 'jurong', 'sTitle' => 'Jurong'),
 		);
 		$this->form = array(
 			array(
@@ -223,7 +227,11 @@ class Penduduks extends MY_Model
 		$this->datatables
 			->select("{$this->table}.uuid")
 			->select("{$this->table}.orders")
-			->select('penduduk.nama_kk');
+			->select('penduduk.nama_kk')
+			->select('penduduk.no_kk')
+			->select('penduduk.jumlah_tanggungan')
+			->select('penduduk.rt')
+			->select('penduduk.jurong');
 		return parent::dt();
 	}
 }

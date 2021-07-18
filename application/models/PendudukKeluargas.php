@@ -17,18 +17,25 @@ class PendudukKeluargas extends MY_Model
 				'name' => 'nama',
 				'width' => 4,
 				'label' => 'Nama',
+				'attributes' => array(
+					array('required' => 'required')
+				)
 			),
 			array(
 				'name' => 'tempat_lahir',
 				'width' => 4,
 				'label' => 'Tempat Lahir',
+				'attributes' => array(
+					array('required' => 'required')
+				)
 			),
 			array(
 				'name' => 'tanggal_lahir',
 				'width' => 4,
 				'label' => 'Tgl. Lahir',
 				'attributes' => array(
-					array('data-date' => 'datepicker')
+					array('data-date' => 'datepicker'),
+					array('required' => 'required')
 				)
 			),
 			array(
