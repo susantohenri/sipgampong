@@ -18,7 +18,7 @@ class PendudukKeluargas extends MY_Model
 				'width' => 4,
 				'label' => 'Nama',
 				'attributes' => array(
-					array('required' => 'required')
+					array('xrequired' => 'required')
 				)
 			),
 			array(
@@ -26,7 +26,7 @@ class PendudukKeluargas extends MY_Model
 				'width' => 4,
 				'label' => 'Tempat Lahir',
 				'attributes' => array(
-					array('required' => 'required')
+					array('xrequired' => 'required')
 				)
 			),
 			array(
@@ -35,7 +35,7 @@ class PendudukKeluargas extends MY_Model
 				'label' => 'Tgl. Lahir',
 				'attributes' => array(
 					array('data-date' => 'datepicker'),
-					array('required' => 'required')
+					array('xrequired' => 'required')
 				)
 			),
 			array(
