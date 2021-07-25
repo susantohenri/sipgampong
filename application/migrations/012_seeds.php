@@ -51,6 +51,12 @@ class Migration_seeds extends CI_Migration
       }
     }
 
+    $this->db
+      ->where('role', $staff)
+      ->where('entity', 'Penduduk')
+      ->where_not_in('action', array('index', 'read'))
+      ->delete('permission');
+
     $this->Menus->create(array(
       'role' => $staff,
       'name' => 'Data<br> Penduduk',
