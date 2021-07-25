@@ -262,8 +262,8 @@
                         <td><?= isset($PendudukKeluargas[$i]) ? $PendudukKeluargas[$i]->pendidikan_terakhir : '' ?></td>
                         <td><?= isset($PendudukKeluargas[$i]) ? $PendudukKeluargas[$i]->pendidikan_tamat : '' ?></td>
                         <td><?= isset($PendudukKeluargas[$i]) ? $PendudukKeluargas[$i]->suku : '' ?></td>
-                        <td colspan="2"><?= isset($PendudukKeluargas[$i]) ? $PendudukKeluargas[$i]->dimana : '' ?></td>
-                        <td><?= isset($PendudukKeluargas[$i]) ? $PendudukKeluargas[$i]->jurusan : '' ?></td>
+                        <td colspan="2"><?= isset($PendudukKeluargas[$i]) ? (strlen($PendudukKeluargas[$i]->dimana) > 0 ? $PendudukKeluargas[$i]->dimana : '-') : '' ?></td>
+                        <td><?= isset($PendudukKeluargas[$i]) ? (strlen($PendudukKeluargas[$i]->jurusan) > 0 ? $PendudukKeluargas[$i]->jurusan : '-') : '' ?></td>
                     </tr>
                 <?php endfor ?>
 
@@ -283,7 +283,7 @@
                     <td colspan="3"></td>
                     <td colspan="3"></td>
                     <td rowspan="3" class="text-center"><?= isset($PendudukAnakYatims[0]) ? $PendudukAnakYatims[0]->tempat_meninggal : '' ?></td>
-                    <td colspan="3" rowspan="8" class="text-center"><?= isset($PendudukUsahas[0]) ? $PendudukUsahas[0]->rincian : '' ?></td>
+                    <td colspan="3" rowspan="8" class="text-center"><?= implode(', ', array_map(function ($usaha) { return $usaha->rincian; }, $PendudukUsahas)) ?></td>
                     <th class="text-center">Jml. Sapi</th>
                     <th class="text-center">Jml. Kambing</th>
                     <th class="text-center">Sendiri</th>
@@ -296,8 +296,8 @@
                     <td colspan="3"><?= isset($PendudukAnakYatims[0]) ? $PendudukAnakYatims[0]->tahun_meninggal : '' ?></td>
                     <td class="text-center"><?= isset($PendudukTernaks[0]) && $PendudukTernaks[0]->jenis === 'Sapi' ? $PendudukTernaks[0]->jumlah : '' ?></td>
                     <td class="text-center"><?= isset($PendudukTernaks[0]) && $PendudukTernaks[0]->jenis === 'Kambing' ? $PendudukTernaks[0]->jumlah : '' ?></td>
-                    <td class="text-center"><?= isset($PendudukTernaks[0]) && $PendudukTernaks[0]->kepemilikan === 'Sendiri' ? 'Ya' : '' ?></td>
-                    <td class="text-center"><?= isset($PendudukTernaks[0]) && $PendudukTernaks[0]->kepemilikan === 'Bantuan' ? 'Ya' : '' ?></td>
+                    <td class="text-center"><?= isset($PendudukTernaks[0]) && $PendudukTernaks[0]->kepemilikan === 'Sendiri' ? '✓' : '' ?></td>
+                    <td class="text-center"><?= isset($PendudukTernaks[0]) && $PendudukTernaks[0]->kepemilikan === 'Bantuan' ? '✓' : '' ?></td>
                 </tr>
                 <tr>
                     <td class="text-center">2</td>
@@ -306,8 +306,8 @@
                     <td colspan="3"><?= isset($PendudukAnakYatims[1]) ? $PendudukAnakYatims[1]->tahun_meninggal : '' ?></td>
                     <td class="text-center"><?= isset($PendudukTernaks[1]) && $PendudukTernaks[1]->jenis === 'Sapi' ? $PendudukTernaks[1]->jumlah : '' ?></td>
                     <td class="text-center"><?= isset($PendudukTernaks[1]) && $PendudukTernaks[1]->jenis === 'Kambing' ? $PendudukTernaks[1]->jumlah : '' ?></td>
-                    <td class="text-center"><?= isset($PendudukTernaks[1]) && $PendudukTernaks[1]->kepemilikan === 'Sendiri' ? 'Ya' : '' ?></td>
-                    <td class="text-center"><?= isset($PendudukTernaks[1]) && $PendudukTernaks[1]->kepemilikan === 'Bantuan' ? 'Ya' : '' ?></td>
+                    <td class="text-center"><?= isset($PendudukTernaks[1]) && $PendudukTernaks[1]->kepemilikan === 'Sendiri' ? '✓' : '' ?></td>
+                    <td class="text-center"><?= isset($PendudukTernaks[1]) && $PendudukTernaks[1]->kepemilikan === 'Bantuan' ? '✓' : '' ?></td>
                 </tr>
                 <tr>
                     <td class="text-center">3</td>
@@ -391,7 +391,7 @@
                             <div class="col-12">
                                 Keterangan Tambahan
                                 <br>
-                                * Bukan Penduduk Gampong Cot Ba'u
+                                * <?= $penduduk_bukan ?> Gampong Cot Ba'u
                             </div>
                         </div>
                     </td>
@@ -408,13 +408,13 @@
                 </tr>
                 <tr>
                     <td colspan="2"><?= $roda_dua > 0 ? $roda_dua : '' ?></td>
-                    <td><?= $roda_tiga > 0 ? $roda_tiga : '' ?></td>
-                    <td><?= $roda_empat > 0 ? $roda_empat : '' ?></td>
-                    <td><?= strpos($listrik, 'PLN') > -1 ? 'Ya' : '' ?></td>
-                    <td colspan="3"><?= strpos($listrik, 'Yang Lain') > -1 ? 'Ya' : '' ?></td>
-                    <td colspan="2"><?= strpos($air, 'PDAM') > -1 ? 'Ya' : '' ?></td>
-                    <td><?= strpos($air, 'Hujan') > -1 ? 'Ya' : '' ?></td>
-                    <td><?= strpos($air, 'Beli') > -1 ? 'Ya' : '' ?></td>
+                    <td><?= $roda_tiga > 0 ? $roda_tiga : '-' ?></td>
+                    <td><?= $roda_empat > 0 ? $roda_empat : '-' ?></td>
+                    <td><?= strpos($listrik, 'PLN') > -1 ? '✓' : '' ?></td>
+                    <td colspan="3"><?= strpos($listrik, 'Yang Lain') > -1 ? '✓' : '' ?></td>
+                    <td colspan="2"><?= strpos($air, 'PDAM') > -1 ? '✓' : '' ?></td>
+                    <td><?= strpos($air, 'Hujan') > -1 ? '✓' : '' ?></td>
+                    <td><?= strpos($air, 'Beli') > -1 ? '✓' : '' ?></td>
                 </tr>
                 <tr>
                     <th colspan="4" rowspan="2" class="text-center">Apakah Dirumah ini ada orang yang Cacat/Lumpuh/Ada/Tidak</th>
@@ -422,29 +422,39 @@
                     <th class="text-center">Sejak Tahun</th>
                 </tr>
                 <tr>
-                    <td colspan="7" rowspan="6" class="text-center"><?= isset($PendudukCacats[0]) ? $PendudukCacats[0]->cacat : '' ?></td>
-                    <td rowspan="8" class="text-center"><?= isset($PendudukCacats[0]) ? $PendudukCacats[0]->sejak_tahun : '' ?></td>
+                    <td colspan="7" rowspan="" class="text-center">&nbsp;</td>
+                    <td rowspan="" class="text-center">&nbsp;</td>
                 </tr>
 
                 <tr>
                     <td class="text-center">1</td>
                     <td colspan="3"><?= isset($PendudukCacats[0]) ? $PendudukCacats[0]->nama : '' ?></td>
+                    <td colspan="7" rowspan="" class="text-center"><?= isset($PendudukCacats[0]) ? $PendudukCacats[0]->cacat : '' ?></td>
+                    <td rowspan="" class="text-center"><?= isset($PendudukCacats[0]) ? $PendudukCacats[0]->sejak_tahun : '' ?></td>
                 </tr>
                 <tr>
                     <td class="text-center">2</td>
                     <td colspan="3"><?= isset($PendudukCacats[1]) ? $PendudukCacats[1]->nama : '' ?></td>
+                    <td colspan="7" rowspan="" class="text-center"><?= isset($PendudukCacats[1]) ? $PendudukCacats[1]->cacat : '' ?></td>
+                    <td rowspan="" class="text-center"><?= isset($PendudukCacats[1]) ? $PendudukCacats[1]->sejak_tahun : '' ?></td>
                 </tr>
                 <tr>
                     <td class="text-center">3</td>
                     <td colspan="3"><?= isset($PendudukCacats[2]) ? $PendudukCacats[2]->nama : '' ?></td>
+                    <td colspan="7" rowspan="" class="text-center"><?= isset($PendudukCacats[2]) ? $PendudukCacats[2]->cacat : '' ?></td>
+                    <td rowspan="" class="text-center"><?= isset($PendudukCacats[2]) ? $PendudukCacats[2]->sejak_tahun : '' ?></td>
                 </tr>
                 <tr>
                     <td class="text-center">4</td>
                     <td colspan="3"><?= isset($PendudukCacats[3]) ? $PendudukCacats[3]->nama : '' ?></td>
+                    <td colspan="7" rowspan="" class="text-center"><?= isset($PendudukCacats[3]) ? $PendudukCacats[3]->cacat : '' ?></td>
+                    <td rowspan="" class="text-center"><?= isset($PendudukCacats[3]) ? $PendudukCacats[3]->sejak_tahun : '' ?></td>
                 </tr>
                 <tr>
                     <td class="text-center">5</td>
                     <td colspan="3"><?= isset($PendudukCacats[4]) ? $PendudukCacats[4]->nama : '' ?></td>
+                    <td colspan="7" rowspan="" class="text-center"><?= isset($PendudukCacats[4]) ? $PendudukCacats[4]->cacat : '' ?></td>
+                    <td rowspan="" class="text-center"><?= isset($PendudukCacats[4]) ? $PendudukCacats[4]->sejak_tahun : '' ?></td>
                 </tr>
 
                 <tr>
@@ -452,11 +462,13 @@
                     <th colspan="2" class="text-center">Ada</th>
                     <th colspan="2" class="text-center">Tidak</th>
                     <th colspan="2" class="text-center">Bersama</th>
+                    <td rowspan="" class="text-center">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><?= strpos($jamban, 'Ada') > -1 ? 'Ya' : '' ?></td>
-                    <td colspan="2"><?= strpos($jamban, 'Tidak') > -1 ? 'Ya' : '' ?></td>
-                    <td colspan="2"><?= strpos($jamban, 'Bersama') > -1 ? 'Ya' : '' ?></td>
+                    <td colspan="2"><?= strpos($jamban, 'Ada') > -1 ? '✓' : '' ?></td>
+                    <td colspan="2"><?= strpos($jamban, 'Tidak') > -1 ? '✓' : '' ?></td>
+                    <td colspan="2"><?= strpos($jamban, 'Bersama') > -1 ? '✓' : '' ?></td>
+                    <td rowspan="" class="text-center">&nbsp;</td>
                 </tr>
 
 
