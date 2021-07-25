@@ -12,8 +12,6 @@ class Penduduks extends MY_Model
 			(object) array('mData' => 'nama_kk', 'sTitle' => 'NAMA KEPALA KELUARGA'),
 			(object) array('mData' => 'no_kk', 'sTitle' => 'NO. KK'),
 			(object) array('mData' => 'jumlah_tanggungan', 'sTitle' => 'Jml. Tanggungan'),
-			(object) array('mData' => 'rt', 'sTitle' => 'RT'),
-			(object) array('mData' => 'jurong', 'sTitle' => 'Jurong'),
 			(object) array('mData' => 'buttons', 'sTitle' => ''),
 		);
 		$this->form = array(
@@ -226,19 +224,52 @@ class Penduduks extends MY_Model
 	function dt()
 	{
 		$site_url = site_url();
+
+		if ($filter_jurong = $this->input->get('filter_jurong')) {
+			$this->db->where('jurong', $filter_jurong);
+		}
+
+		if ($filter_rt = $this->input->get('filter_rt')) {
+			$this->db->where('rt', $filter_rt);
+		}
+
 		$this->datatables
 			->select("{$this->table}.uuid")
 			->select("{$this->table}.orders")
 			->select('penduduk.nama_kk')
 			->select('penduduk.no_kk')
 			->select('penduduk.jumlah_tanggungan')
-			->select('penduduk.rt')
-			->select('penduduk.jurong')
 			->select("CONCAT(
 				'<a class=\"btn btn-sm btn-info\" href=\"{$site_url}/Penduduk/read/', penduduk.uuid,'\">edit</a> ',
 				'<a class=\"btn btn-sm btn-danger\" href=\"{$site_url}/Penduduk/delete/', penduduk.uuid,'\">del</a> ',
 				'<a target=\"_blank\" class=\"btn btn-sm btn-warning\" href=\"{$site_url}/Penduduk/print/', penduduk.uuid,'\">print</a>'
 			) buttons", false);
 		return parent::dt();
+	}
+
+	function prepareFilter()
+	{
+		return array(
+			'jurong' => array_map(
+				function ($pddk) {
+					return $pddk->jurong;
+				},
+				$this
+					->db
+					->select('DISTINCT jurong AS jurong', false)
+					->get($this->table)
+					->result()
+			),
+			'rt' => array_map(
+				function ($pddk) {
+					return $pddk->rt;
+				},
+				$this
+					->db
+					->select('DISTINCT rt AS rt', false)
+					->get($this->table)
+					->result()
+			)
+		);
 	}
 }

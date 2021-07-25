@@ -9,6 +9,25 @@ class Penduduk extends MY_Controller
 		parent::__construct();
 	}
 
+	public function index()
+	{
+		$model = $this->model;
+		if ($post = $this->$model->lastSubmit($this->input->post())) {
+			if (isset($post['delete'])) $this->$model->delete($post['delete']);
+			else $this->$model->save($post);
+		}
+		$vars = array();
+		$vars['page_name'] = 'table-penduduk';
+		$vars['js'] = array(
+			'jquery.dataTables.min.js',
+			'dataTables.bootstrap4.js',
+			'table-penduduk.js'
+		);
+		$vars['thead'] = $this->$model->thead;
+		$vars['filter_options'] = $this->{$this->model}->prepareFilter();
+		$this->loadview('index', $vars);
+	}
+
 	function create()
 	{
 		$model = $this->model;
