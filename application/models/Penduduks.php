@@ -14,6 +14,7 @@ class Penduduks extends MY_Model
 			(object) array('mData' => 'jumlah_tanggungan', 'sTitle' => 'Jml. Tanggungan'),
 			(object) array('mData' => 'rt', 'sTitle' => 'RT'),
 			(object) array('mData' => 'jurong', 'sTitle' => 'Jurong'),
+			(object) array('mData' => 'buttons', 'sTitle' => ''),
 		);
 		$this->form = array(
 			array(
@@ -224,6 +225,7 @@ class Penduduks extends MY_Model
 
 	function dt()
 	{
+		$site_url = site_url();
 		$this->datatables
 			->select("{$this->table}.uuid")
 			->select("{$this->table}.orders")
@@ -231,7 +233,12 @@ class Penduduks extends MY_Model
 			->select('penduduk.no_kk')
 			->select('penduduk.jumlah_tanggungan')
 			->select('penduduk.rt')
-			->select('penduduk.jurong');
+			->select('penduduk.jurong')
+			->select("CONCAT(
+				'<a class=\"btn btn-sm btn-info\" href=\"{$site_url}/Penduduk/read/', penduduk.uuid,'\">edit</a> ',
+				'<a class=\"btn btn-sm btn-danger\" href=\"{$site_url}/Penduduk/delete/', penduduk.uuid,'\">del</a> ',
+				'<a target=\"_blank\" class=\"btn btn-sm btn-warning\" href=\"{$site_url}/Penduduk/print/', penduduk.uuid,'\">print</a>'
+			) buttons", false);
 		return parent::dt();
 	}
 }

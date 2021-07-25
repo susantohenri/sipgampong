@@ -17,7 +17,7 @@ window.onload = function () {
       if (data.prosentase && parseInt(data.prosentase.replace('%', '').split(',').join('')) > 100) $(row).css('background-color', '#ffcccc')
     },
     fnRowCallback: function(nRow, aData, iDisplayIndex ) {
-      $(nRow).css('cursor', 'pointer').click( function () {
+      if (window.location.href.indexOf('/Penduduk') < 0) $(nRow).css('cursor', 'pointer').click( function () {
         if (!allow_read) return false
         else window.location.href = current_controller_url + '/read/' + aData.uuid
       })
