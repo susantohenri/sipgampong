@@ -44,8 +44,8 @@
                 <div class="form-group row">
                   <label class="col-sm-3 control-label"><?= $field['label']  ?></label>
                   <div class="col-sm-9">
-                    <?php foreach ($field['options'] as $radio): ?>
-                      <input type="radio" name="<?= $field['name'] ?>" value="<?= $radio['value'] ?>" <?= isset($field['value']) && $field['value'] === $radio['value'] ? 'checked':'' ?>> &nbsp; <?= $radio['text'] ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <?php foreach ($field['options'] as $radio) : ?>
+                      <input type="radio" name="<?= $field['name'] ?>" value="<?= $radio['value'] ?>" <?= isset($field['value']) && $field['value'] === $radio['value'] ? 'checked' : '' ?>> &nbsp; <?= $radio['text'] ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <?php endforeach ?>
                   </div>
                 </div>
@@ -93,5 +93,17 @@
       </div>
   <?php endforeach;
   endif; ?>
+
+  <div class="card card-outline">
+    <div class="card-header text-right">
+      <?php if ((empty($uuid) && in_array("create_{$current['controller']}", $permission)) || (!empty($uuid) && in_array("update_{$current['controller']}", $permission))) : ?>
+        <button class="btn btn-info btn-save"><i class="fa fa-save"></i> &nbsp; Save</button>
+      <?php endif ?>
+      <?php if (!empty($uuid) && in_array("delete_{$current['controller']}", $permission)) : ?>
+        <a href="<?= site_url($current['controller'] . "/delete/$uuid") ?>" class="btn btn-danger"><i class="fa fa-trash"></i> &nbsp; Delete</a>
+      <?php endif ?>
+      <a href="<?= site_url($current['controller']) ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> &nbsp; Cancel</a>
+    </div>
+  </div>
 
 </form>
