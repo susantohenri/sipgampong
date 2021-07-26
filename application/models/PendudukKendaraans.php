@@ -25,8 +25,11 @@ class PendudukKendaraans extends MY_Model
       ),
       array(
         'name' => 'jumlah',
-        'width' => 2,
+        'width' => 3,
         'label' => 'Jumlah',
+				'attributes' => array(
+					array('xrequired' => 'required')
+				)
       ),
     );
     $this->childs = array();

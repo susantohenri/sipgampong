@@ -17,6 +17,9 @@ class PendudukUsahas extends MY_Model
         'name' => 'rincian',
         'width' => 10,
         'label' => 'Rincian',
+        'attributes' => array(
+          array('xrequired' => 'required')
+        )
       ),
     );
     $this->childs = array();

@@ -27,11 +27,4 @@ $(function () {
         }
     })
 
-    if (window.location.href.indexOf('/read/') > -1) {
-        var url1 = window.location.href.replace('/read/', '/print/')
-        $('.btn-warning').before(`
-            <a target="_blank" href="${url1}" class="btn btn-primary"><i class="fa fa-print"></i> &nbsp; Print</a>
-        `)
-    }
-
 })

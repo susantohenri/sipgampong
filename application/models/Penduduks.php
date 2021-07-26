@@ -59,11 +59,17 @@ class Penduduks extends MY_Model
 				'name' => 'no_kk',
 				'width' => 2,
 				'label' => 'NOMOR KK',
+				'attributes' => array(
+					array('xrequired' => 'required')
+				)
 			),
 			array(
 				'name' => 'nama_kk',
 				'width' => 2,
 				'label' => 'NAMA KEPALA KELUARGA',
+				'attributes' => array(
+					array('xrequired' => 'required')
+				)
 			),
 			array(
 				'name' => 'status_perkawian',

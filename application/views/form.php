@@ -3,6 +3,9 @@
 <form enctype='multipart/form-data' action="<?= site_url($current['controller']) ?>" method="POST" class="main-form col-sm-12">
   <div class="card card-primary card-outline">
     <div class="card-header text-right">
+      <?php if ($current['controller'] === 'Penduduk' && !empty($uuid)) : ?>
+        <a target="_blank" href="<?= site_url("Penduduk/print/{$uuid}") ?>" class="btn btn-primary"><i class="fa fa-print"></i> &nbsp; Print</a>
+      <?php endif ?>
       <?php if ((empty($uuid) && in_array("create_{$current['controller']}", $permission)) || (!empty($uuid) && in_array("update_{$current['controller']}", $permission))) : ?>
         <button class="btn btn-info btn-save"><i class="fa fa-save"></i> &nbsp; Save</button>
       <?php endif ?>
@@ -96,6 +99,9 @@
 
   <div class="card card-outline">
     <div class="card-header text-right">
+      <?php if ($current['controller'] === 'Penduduk' && !empty($uuid)) : ?>
+        <a target="_blank" href="<?= site_url("Penduduk/print/{$uuid}") ?>" class="btn btn-primary"><i class="fa fa-print"></i> &nbsp; Print</a>
+      <?php endif ?>
       <?php if ((empty($uuid) && in_array("create_{$current['controller']}", $permission)) || (!empty($uuid) && in_array("update_{$current['controller']}", $permission))) : ?>
         <button class="btn btn-info btn-save"><i class="fa fa-save"></i> &nbsp; Save</button>
       <?php endif ?>

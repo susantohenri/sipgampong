@@ -17,6 +17,9 @@ class PendudukAnakYatims extends MY_Model
         'name' => 'nama',
         'width' => 4,
         'label' => 'Nama',
+				'attributes' => array(
+					array('xrequired' => 'required')
+				)
       ),
       array(
         'name' => 'nama_ayah',
