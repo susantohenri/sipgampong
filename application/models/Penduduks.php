@@ -12,7 +12,7 @@ class Penduduks extends MY_Model
 			(object) array('mData' => 'nama_kk', 'sTitle' => 'NAMA KEPALA KELUARGA'),
 			(object) array('mData' => 'no_kk', 'sTitle' => 'NO. KK'),
 			(object) array('mData' => 'jumlah_tanggungan', 'sTitle' => 'Jml. Tanggungan'),
-			(object) array('mData' => 'buttons', 'sTitle' => ''),
+			(object) array('mData' => 'buttons', 'sTitle' => '', 'searchable' => false),
 		);
 		$this->form = array(
 			array(
@@ -239,17 +239,26 @@ class Penduduks extends MY_Model
 			$this->db->where('rt', $filter_rt);
 		}
 
+		$this->load->model('Roles');
+		$role = $this->Roles->findOne($this->session->userdata('role'));
+		$buttons = $role['name'] === 'admin' ?
+			"CONCAT(
+				'<a class=\"btn btn-sm btn-info\" href=\"{$site_url}/Penduduk/read/', penduduk.uuid,'\">edit</a> ',
+				'<a class=\"btn btn-sm btn-danger\" href=\"{$site_url}/Penduduk/delete/', penduduk.uuid,'\">del</a> ',
+				'<a target=\"_blank\" class=\"btn btn-sm btn-warning\" href=\"{$site_url}/Penduduk/print/', penduduk.uuid,'\">print</a>'
+			) buttons" :
+			"CONCAT(
+				'<a class=\"btn btn-sm btn-info\" href=\"{$site_url}/Penduduk/read/', penduduk.uuid,'\">edit</a> ',
+				'<a target=\"_blank\" class=\"btn btn-sm btn-warning\" href=\"{$site_url}/Penduduk/print/', penduduk.uuid,'\">print</a>'
+			) buttons";
+
 		$this->datatables
 			->select("{$this->table}.uuid")
 			->select("{$this->table}.orders")
 			->select('penduduk.nama_kk')
 			->select('penduduk.no_kk')
 			->select('penduduk.jumlah_tanggungan')
-			->select("CONCAT(
-				'<a class=\"btn btn-sm btn-info\" href=\"{$site_url}/Penduduk/read/', penduduk.uuid,'\">edit</a> ',
-				'<a class=\"btn btn-sm btn-danger\" href=\"{$site_url}/Penduduk/delete/', penduduk.uuid,'\">del</a> ',
-				'<a target=\"_blank\" class=\"btn btn-sm btn-warning\" href=\"{$site_url}/Penduduk/print/', penduduk.uuid,'\">print</a>'
-			) buttons", false);
+			->select($buttons, false);
 		return parent::dt();
 	}
 
