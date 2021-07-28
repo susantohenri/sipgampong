@@ -231,14 +231,6 @@ class Penduduks extends MY_Model
 	{
 		$site_url = site_url();
 
-		if ($filter_jurong = $this->input->get('filter_jurong')) {
-			$this->db->where('jurong', $filter_jurong);
-		}
-
-		if ($filter_rt = $this->input->get('filter_rt')) {
-			$this->db->where('rt', $filter_rt);
-		}
-
 		$this->load->model('Roles');
 		$role = $this->Roles->findOne($this->session->userdata('role'));
 		$buttons = $role['name'] === 'admin' ?
@@ -251,6 +243,14 @@ class Penduduks extends MY_Model
 				'<a class=\"btn btn-sm btn-info\" href=\"{$site_url}/Penduduk/read/', penduduk.uuid,'\">edit</a> ',
 				'<a target=\"_blank\" class=\"btn btn-sm btn-warning\" href=\"{$site_url}/Penduduk/print/', penduduk.uuid,'\">print</a>'
 			) buttons";
+
+		if ($filter_jurong = $this->input->get('filter_jurong')) {
+			$this->db->where('jurong', $filter_jurong);
+		}
+
+		if ($filter_rt = $this->input->get('filter_rt')) {
+			$this->db->where('rt', $filter_rt);
+		}
 
 		$this->datatables
 			->select("{$this->table}.uuid")
